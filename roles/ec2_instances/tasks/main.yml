@@ -1,0 +1,16 @@
+---
+  - name: devopsSourav instance
+    ec2:
+      key_name: devopssourav-key
+      image: ami-1fb56d7f
+      user_data: "{{ lookup('file', 'user-data.sh') }}" 
+      wait: yes
+      instance_type: t2.micro
+      region: us-west-2
+      instance_tags:
+               project: Devops-Sourav
+      count_tag:
+         Name: devops-Sourav
+      exact_count: 1
+    register: ec2
+

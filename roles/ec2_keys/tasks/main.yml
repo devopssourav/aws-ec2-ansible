@@ -1,0 +1,16 @@
+---
+  - name: Create a new EC2 key
+    ec2_key:
+        name: devopssourav-key
+        region: us-west-2
+    register: ec2_key_result
+     
+  - name: Save private key
+    copy: content="{{ ec2_key_result.key.private_key }}" dest="./devopssourav-key.pem" mode=0400
+    when: ec2_key_result.changed
+
+
+
+
+
+

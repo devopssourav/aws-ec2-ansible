@@ -1,0 +1,14 @@
+---
+  - name: DevopsSourav-Security_group
+    ec2_group:
+      name: DevopsSourav_security_group
+      description: Devops Sourav Security Group
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      rules:
+        - proto: tcp
+          from_port: 22
+          to_port: 22
+          cidr_ip: 0.0.0.0/0
+
+     
